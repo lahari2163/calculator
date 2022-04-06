@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     double input1 = 0, input2 = 0;
-    TextView edt1;
+    TextView edt1, temp;
     boolean Addition, Subtract, Multiplication, Division, mRemainder, decimal;
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonAdd, buttonSub,
             buttonMul, buttonDivision, buttonEqual, buttonDel, buttonDot, Remainder;
@@ -40,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
         buttonEqual = (Button) findViewById(R.id.buttoneql);
 
         edt1 = (TextView) findViewById(R.id.display);
+        temp = (TextView) findViewById(R.id.temp);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "1");
+                temp.setText(temp.getText() + "1");
+
             }
         });
 
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "2");
+                temp.setText(temp.getText() + "2");
             }
         });
 
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "3");
+                temp.setText(temp.getText() + "3");
             }
         });
 
@@ -66,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "4");
+                temp.setText(temp.getText() + "4");
             }
         });
 
@@ -73,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "5");
+                temp.setText(temp.getText() + "5");
             }
         });
 
@@ -80,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "6");
+                temp.setText(temp.getText() + "6");
             }
         });
 
@@ -87,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "7");
+                temp.setText(temp.getText() + "7");
             }
         });
 
@@ -94,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "8");
+                temp.setText(temp.getText() + "8");
             }
         });
 
@@ -101,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "9");
+                temp.setText(temp.getText() + "9");
             }
         });
 
@@ -108,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText(edt1.getText() + "0");
+                temp.setText(temp.getText() + "0");
             }
         });
 
@@ -115,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edt1.getText().length() != 0) {
+                    temp.setText(temp.getText()+" + ");
                     input1 = Float.parseFloat(edt1.getText() + "");
                     Addition = true;
                     decimal = false;
@@ -127,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edt1.getText().length() != 0) {
+                    temp.setText(temp.getText()+" - ");
                     input1 = Float.parseFloat(edt1.getText() + "");
                     Subtract = true;
                     decimal = false;
@@ -139,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edt1.getText().length() != 0) {
+                    temp.setText(temp.getText()+" * ");
                     input1 = Float.parseFloat(edt1.getText() + "");
                     Multiplication = true;
                     decimal = false;
@@ -151,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edt1.getText().length() != 0) {
+                    temp.setText(temp.getText()+" / ");
                     input1 = Float.parseFloat(edt1.getText() + "");
                     Division = true;
                     decimal = false;
@@ -163,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edt1.getText().length() != 0) {
+                    temp.setText(temp.getText()+" % ");
                     input1 = Float.parseFloat(edt1.getText() + "");
                     mRemainder = true;
                     decimal = false;
@@ -179,28 +196,34 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (Addition) {
-
                     edt1.setText(input1 + input2 + "");
+                    temp.setText(input1 + input2 + "");
                     Addition = false;
                 }
 
                 if (Subtract) {
 
                     edt1.setText(input1 - input2 + "");
+                    temp.setText(input1 - input2 + "");
                     Subtract = false;
                 }
 
                 if (Multiplication) {
                     edt1.setText(input1 * input2 + "");
+                    temp.setText(input1 * input2 + "");
+
                     Multiplication = false;
                 }
 
                 if (Division) {
                     edt1.setText(input1 / input2 + "");
+                    temp.setText(input1 / input2 + "");
+
                     Division = false;
                 }
                 if (mRemainder) {
                     edt1.setText(input1 % input2 + "");
+                    temp.setText(input1 % input2 + "");
                     mRemainder = false;
                 }
             }
@@ -210,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edt1.setText("");
+                temp.setText("");
                 input1 = 0.0;
                 input2 = 0.0;
             }
@@ -222,6 +246,7 @@ public class MainActivity extends AppCompatActivity {
                     //do nothing or you can show the error
                 } else {
                     edt1.setText(edt1.getText() + ".");
+                    temp.setText(temp.getText() + ".");
                     decimal = true;
                 }
 
